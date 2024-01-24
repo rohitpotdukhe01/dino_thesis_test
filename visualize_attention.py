@@ -143,7 +143,8 @@ if __name__ == '__main__':
         if url is not None:
             print("Since no pretrained weights have been provided, we load the reference pretrained DINO weights.")
             state_dict = torch.hub.load_state_dict_from_url(url="https://dl.fbaipublicfiles.com/dino/" + url)
-            model.load_state_dict(state_dict, strict=True)
+            msg = model.load_state_dict(state_dict, strict=True)
+            print('Rohit loaded the pretrained weights from URL with msg: {}'.format(msg))
         else:
             print("There is no reference weights available for this model => We use random weights.")
 
